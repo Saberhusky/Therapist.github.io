@@ -64,10 +64,22 @@
         <!-- Add more options (10, 20, 30, 40, 50) -->
     </select>
 
+    <!-- Select duration -->
+    <label for="duration">Duration (minutes):</label>
+    <select id="duration">
+        <option value="30">30</option>
+        <option value="60">60</option>
+        <option value="90">90</option>
+        <option value="120">120</option>
+    </select>
+	
     <!-- Available now button -->
     <button onclick="checkAvailability()">Available Now</button>
 
     <script>
+		const therapists = [
+            { id: 1, name: 'Alice', schedule: [true, false, true, true], gender: 'female' },
+            { id: 2, name: 'Bob', schedule: [true, true, false, true], gender: 'male' }
         function addTherapist() {
             // Implement logic to add a therapist
             // Prompt user for therapist details
@@ -79,11 +91,20 @@
         }
 
         function checkAvailability() {
-            const selectedHour = document.getElementById('hour').value;
-            const selectedMinute = document.getElementById('minute').value;
+            const selectedHour = parseInt(document.getElementById('hour').value, 10);
+            const selectedMinute = parseInt(document.getElementById('minute').value, 10);
+            const requestedDuration = 60; // Choose from 30, 60, 90, or 120 minutes
 
-            // Implement logic to check therapist availability at the selected time
-            // Display results to the user
+            // Find the next available therapist
+            const nextTherapist = therapists.find(therapist =>
+                therapist.isAvailable(selectedHour, requestedDuration)
+            );
+
+            if (nextTherapist) {
+                alert(`The next available therapist is ${nextTherapist.name} with ID ${nextTherapist.id}.`);
+            } else {
+                alert('No therapists are available at the requested time or duration.');
+            }
         }
     </script>
 	<script src="js/schedulingAlgorithm.js"></script>

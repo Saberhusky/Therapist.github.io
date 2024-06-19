@@ -3,15 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spa Therapist Schedule</title>
-	<link rel="stylesheet" href="css/style.css">
-
+    <title>Therapist Scheduler</title>
 </head>
 <body>
+    <h1>Therapist Scheduler</h1>
 
-    <!-- Your HTML content goes here -->
+    <!-- Select number of therapists -->
+    <label for="therapistCount">Number of Therapists:</label>
+    <select id="therapistCount">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <!-- Add more options as needed -->
+    </select>
 
-    <!-- Link to your JavaScript file -->
-    <script src="js/schedulingAlgorithm.js"></script>
+    <!-- Add therapist button -->
+    <button onclick="addTherapist()">Add Therapist</button>
+
+    <!-- Remove therapist button -->
+    <button onclick="removeTherapist()">Remove Therapist</button>
+
+    <!-- Select hour -->
+    <label for="hour">Hour:</label>
+    <select id="hour">
+        <option value="0">00</option>
+        <option value="1">01</option>
+        <!-- Add more options up to 23 -->
+    </select>
+
+    <!-- Select minute -->
+    <label for="minute">Minute:</label>
+    <select id="minute">
+        <option value="0">00</option>
+        <option value="10">10</option>
+        <!-- Add more options (10, 20, 30, 40, 50) -->
+    </select>
+
+    <!-- Available now button -->
+    <button onclick="checkAvailability()">Available Now</button>
+
+    <script>
+        function addTherapist() {
+            // Implement logic to add a therapist
+            // Prompt user for therapist details
+        }
+
+        function removeTherapist() {
+            // Implement logic to remove a therapist
+            // Prompt user to select which therapist to remove
+        }
+
+        function checkAvailability() {
+            const selectedHour = document.getElementById('hour').value;
+            const selectedMinute = document.getElementById('minute').value;
+
+            // Implement logic to check therapist availability at the selected time
+            // Display results to the user
+        }
+    </script>
+	<script src="js/schedulingAlgorithm.js"></script>
 </body>
 </html>
